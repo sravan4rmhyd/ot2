@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta
+    kind: Deployment
+    name: phpapp
+  minReplicas: 2
+  maxReplicas: 50
+  targetCPUUtilizationPercentage: 50
